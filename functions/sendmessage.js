@@ -44,7 +44,7 @@ export async function onRequestPost(context) {
     });
 
     // Возвращаем успешный ответ
-    return new Response('Nice', { status: 200, text: "Все супер" });
+    return new Response(input, { status: 200, text: "Все супер" });
   } catch (error) {
     console.error('Ошибка обработки формы:', error);
 
