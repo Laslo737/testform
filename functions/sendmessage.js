@@ -1,7 +1,7 @@
 export async function onRequestPost(context) {
   try {
-    const telegramBotToken = process.env.TELEGRAM_BOT_TOKEN;
-    const telegramChatId = process.env.TELEGRAM_CHAT_ID;
+    const telegramBotToken = '5458783596:AAGrAKN5Su7ApVD6LeWKfQ6bosVk1V8bxZ4' // process.env.TELEGRAM_BOT_TOKEN;
+    const telegramChatId = '-860374952' //process.env.TELEGRAM_CHAT_ID;
 
     let input = await context.request.formData();
 
