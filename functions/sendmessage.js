@@ -1,7 +1,7 @@
 export async function onRequestPost(context) {
   try {
-    const telegramBotToken = '5458783596:AAGrAKN5Su7ApVD6LeWKfQ6bosVk1V8bxZ4' // process.env.TELEGRAM_BOT_TOKEN;
-    const telegramChatId = '-860374952' //process.env.TELEGRAM_CHAT_ID;
+    const telegramBotToken = 'telegramBotToken';
+    const telegramChatId = 'telegramChatId';
 
     let input = await context.request.formData();
 
@@ -30,7 +30,7 @@ export async function onRequestPost(context) {
     });
 
     // Возвращаем успешный ответ
-    return new Response(JSON.stringify({ pretty, success: true }), {
+    return new Response(pretty, {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
