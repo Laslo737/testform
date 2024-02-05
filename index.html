@@ -233,33 +233,6 @@
             });
          </script>
 
-         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-               const form = document.getElementById('myForm');
-               form.addEventListener('submit', async function (event) {
-                  event.preventDefault();
-
-                  try {
-                     // Отправка данных формы
-                     const formData = new FormData(form);
-                     const response = await fetch(form.action, {
-                        method: form.method,
-                        body: formData
-                     });
-
-                     const data = await response.json();
-
-                     // Проверка наличия параметра success и отображение блока form__success
-                     if (data.success) {
-                        document.querySelector('.form__success').style.display = 'block';
-                     }
-                  } catch (error) {
-                     console.error('Ошибка отправки формы:', error);
-                     // Добавьте обработку ошибок, если необходимо
-                  }
-               });
-            });
-         </script>
 
          <div class="form__manager">
             <div class="manager">
@@ -290,6 +263,26 @@
          Наш менеджер получил заявку. Он сформирует подходящие варианты и свяжется с вами.
       </p>
    </div>
+   
+   <script>
+      document.addEventListener('DOMContentLoaded', function () {
+         // Получаем форму
+         var form = document.querySelector('form');
+
+         // Обработчик отправки формы
+         form.addEventListener('submit', function (event) {
+            // Предотвращаем стандартное поведение формы (перезагрузку страницы)
+            event.preventDefault();
+
+            // Ваш код обработки формы (может быть ajax-запрос и т.д.)
+
+            // Изменяем класс у элемента с классом form__success
+            var successDiv = document.querySelector('.form__success');
+            successDiv.style.display = 'block';
+         });
+      });
+   </script>
+
 
 </body>
 
