@@ -1,9 +1,7 @@
 export async function onRequestPost(context) {
   try {
-    console.log(context);
-
-    const telegramBotToken = '5458783596:AAGrAKN5Su7ApVD6LeWKfQ6bosVk1V8bxZ4';
-    const telegramChatId = '-860374952';
+    const telegramBotToken = 'telegramBotToken';
+    const telegramChatId = 'telegramChatId';
 
     let input = await context.request.formData();
 
@@ -19,31 +17,6 @@ export async function onRequestPost(context) {
 
     let pretty = JSON.stringify(output, null, 2);
 
-    // Разбор данных из формы
-    // const formData = JSON.parse(event.body);
-    // const { Недвижимость, Спальня, Бюджет, Имя, Ватсап, Телефон } = formData;
-
-    // // Получение гет-параметров
-    // const urlParams = new URLSearchParams(event.queryStringParameters);
-    // const sub1 = urlParams.get('sub1') || '';
-    // const keyword = urlParams.get('keyword') || '';
-    // const gclid = urlParams.get('gclid') || '';
-
-    // // Формирование текста сообщения для Telegram с добавлением гет-параметров
-    // const message = `
-    //   Новая заявка!
-    //   Недвижимость: ${Недвижимость}
-    //   Спальня: ${Спальня}
-    //   Бюджет: ${Бюджет}
-    //   Имя: ${Имя}
-    //   Ватсап: ${Ватсап || 'Не указан'}
-    //   Телефон: ${Телефон || 'Не указан'}
-    //   sub1: ${sub1}
-    //   keyword: ${keyword}
-    //   gclid: ${gclid}
-    // `;
-
-    // Отправка сообщения в Telegram
     const telegramApiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
     await fetch(telegramApiUrl, {
       method: 'POST',
@@ -58,8 +31,9 @@ export async function onRequestPost(context) {
 
     // Возвращаем успешный ответ
     return new Response(pretty, {
+      status: 302, // Статус 302 означает временный редирект
       headers: {
-        'Content-Type': 'application/json;charset=utf-8',
+        'Location': './index.html', // Замените на ваш целевой URL
       },
     });
   } catch (error) {
