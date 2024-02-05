@@ -1,9 +1,11 @@
 export async function onRequestPost(context) {
   try {
     console.log(context);
+
     const telegramBotToken = '5458783596:AAGrAKN5Su7ApVD6LeWKfQ6bosVk1V8bxZ4';
     const telegramChatId = '-860374952';
 
+    let input = await context.request.formData();
     // Разбор данных из формы
     // const formData = JSON.parse(event.body);
     // const { Недвижимость, Спальня, Бюджет, Имя, Ватсап, Телефон } = formData;
@@ -37,22 +39,16 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         chat_id: telegramChatId,
-        text: 'message',
+        text: input,
       }),
     });
 
     // Возвращаем успешный ответ
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: 'Форма успешно отправлена в Telegram!' }),
-    };
+    return new Response('Nice', { status: 200, text: "Все супер" });
   } catch (error) {
     console.error('Ошибка обработки формы:', error);
 
     // Возвращаем ответ об ошибке
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: 'Произошла ошибка при обработке формы.' }),
-    };
+    return new Response('Error parsing JSON content', { status: 400 });
   }
 }
