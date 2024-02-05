@@ -52,7 +52,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         chat_id: telegramChatId,
-        text: input,
+        text: pretty,
       }),
     });
 
