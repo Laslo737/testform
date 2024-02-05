@@ -1,7 +1,7 @@
 export async function onRequestPost(context) {
   try {
-    const telegramBotToken = 'telegramBotToken';
-    const telegramChatId = 'telegramChatId';
+    const telegramBotToken = process.env.TELEGRAM_BOT_TOKEN;
+    const telegramChatId = process.env.TELEGRAM_CHAT_ID;
 
     let input = await context.request.formData();
 
@@ -30,10 +30,9 @@ export async function onRequestPost(context) {
     });
 
     // Возвращаем успешный ответ
-    return new Response(pretty, {
-      status: 302, // Статус 302 означает временный редирект
+    return new Response(JSON.stringify({ pretty, success: true }), {
       headers: {
-        'Location': './index.html', // Замените на ваш целевой URL
+        'Content-Type': 'application/json;charset=utf-8',
       },
     });
   } catch (error) {

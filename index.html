@@ -233,6 +233,33 @@
             });
          </script>
 
+         <script>
+            document.addEventListener('DOMContentLoaded', function () {
+               const form = document.getElementById('myForm');
+               form.addEventListener('submit', async function (event) {
+                  event.preventDefault();
+
+                  try {
+                     // Отправка данных формы
+                     const formData = new FormData(form);
+                     const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData
+                     });
+
+                     const data = await response.json();
+
+                     // Проверка наличия параметра success и отображение блока form__success
+                     if (data.success) {
+                        document.querySelector('.form__success').style.display = 'block';
+                     }
+                  } catch (error) {
+                     console.error('Ошибка отправки формы:', error);
+                     // Добавьте обработку ошибок, если необходимо
+                  }
+               });
+            });
+         </script>
 
          <div class="form__manager">
             <div class="manager">
