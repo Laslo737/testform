@@ -4,6 +4,7 @@ export async function onRequestPost(context) {
     const telegramChatId = '-860374952';
 
     let input = await context.request.formData();
+    console.log(input);
 
     let output = {};
     for (let [key, value] of input) {
@@ -15,7 +16,7 @@ export async function onRequestPost(context) {
       }
     }
 
-    let pretty = JSON.stringify(output, null, 2);
+    let data = JSON.stringify(output, null, 2);
 
     const telegramApiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
     await fetch(telegramApiUrl, {
@@ -25,15 +26,17 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         chat_id: telegramChatId,
-        text: pretty,
+        text: data,
       }),
     });
 
+    let getTelephone = input[Ватсап].trim() !== '' ? input[Ватсап] : input[Телефон]
+
     // Возвращаем успешный ответ
-    return new Response(pretty, {
+    return new Response(data, {
       status: 302, // Статус 302 означает временный редирект
       headers: {
-        'Location': './thanks.html?name="name"', // Замените на ваш целевой URL
+        'Location': `./thanks.html?name=${input[Имя]}&tel=${getTelephone}`, // Замените на ваш целевой URL
         'Content-Type': 'application/json;charset=utf-8',
       },
     });
