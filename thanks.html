@@ -51,6 +51,11 @@
 
             document.getElementById("namePlaceholder").innerText = name || '';
             document.getElementById("telPlaceholder").innerText = tel || '';
+
+            const btn = document.getElementById("header__btn");
+            btn.addEventListener("click", function () {
+                window.location.href = "./index.html";
+            });
         });
     </script>
     <script src="js/main.js" defer></script>
