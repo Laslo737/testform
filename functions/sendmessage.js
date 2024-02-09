@@ -4,7 +4,7 @@ export async function onRequestPost(context) {
     const telegramChatId = '-860374952';
 
     let input = await context.request.formData();
-    console.log(input);
+
 
     let output = {};
     for (let [key, value] of input) {
@@ -15,6 +15,7 @@ export async function onRequestPost(context) {
         output[key] = [].concat(tmp, value);
       }
     }
+    console.log(output);
 
     let data = JSON.stringify(output, null, 2);
 
@@ -26,7 +27,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         chat_id: telegramChatId,
-        text: data,
+        text: output,
       }),
     });
 
