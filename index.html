@@ -215,65 +215,48 @@
     </div>
   </div>
   <a class="empty__link" href="#">link</a>
-  <div id="form__success" class="form-success" style="display: none;">
 
-    <div class="form-success__content">
-      <div id="closeButton" class="close-button">✕</div>
-      <h5>Спасибо за заявку</h5>
-      <p>
-        Мы свяжемся с вами в ближайшее рабочее время.
-      </p>
-    </div>
-  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Получение гет-параметров из URL
       const urlParams = new URLSearchParams(window.location.search);
 
-      const form = document.getElementById("myForm");
+      // const form = document.getElementById("myForm");
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузку страницы)
+      // form.addEventListener("submit", function (event) {
+      //   event.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузку страницы)
 
-        // Получаем данные формы
-        const formData = new FormData(form);
+      //   // Получаем данные формы
+      //   const formData = new FormData(form);
 
-        // Отправляем данные с использованием AJAX
-        $.ajax({
-          type: form.method,
-          url: form.action,
-          data: formData,
-          processData: false,
-          contentType: false,
-          success: function (response) {
-            // Если запрос успешен, показываем блок с сообщением об успешной отправке
-            document.getElementById("form__success").style.display = "flex";
-          },
-          error: function (error) {
-            console.error("Ошибка при отправке формы:", error);
-            // Обработка ошибок, если необходимо
-          }
-        });
-      });
+      //   // Отправляем данные с использованием AJAX
+      //   $.ajax({
+      //     type: form.method,
+      //     url: form.action,
+      //     data: formData,
+      //     processData: false,
+      //     contentType: false,
+      //     success: function (response) {
+      //       // Если запрос успешен, показываем блок с сообщением об успешной отправке
+      //       document.getElementById("form__success").style.display = "flex";
+      //     },
+      //     error: function (error) {
+      //       console.error("Ошибка при отправке формы:", error);
+      //       // Обработка ошибок, если необходимо
+      //     }
+      //   });
+      // });
 
-      // // Получение значения каждого параметра
-      // const sub1 = urlParams.get("sub1");
-      // const keyword = urlParams.get("keyword");
-      // const gclid = urlParams.get("gclid");
-      // const status = urlParams.get("status");
+      // Получение значения каждого параметра
+      const sub1 = urlParams.get("sub1");
+      const keyword = urlParams.get("keyword");
+      const gclid = urlParams.get("gclid");
 
-      // // Запись значений в скрытые инпуты формы
-      // document.getElementById("sub1").value = sub1 || "";
-      // document.getElementById("keyword").value = keyword || "";
-      // document.getElementById("gclid").value = gclid || "";
-
-      // document.getElementById("form__success").style.display = status === "true" ? "flex" : "none";
-
-
-      document.getElementById("closeButton").addEventListener("click", function () {
-        document.getElementById("form__success").style.display = "none";
-      });
+      // Запись значений в скрытые инпуты формы
+      document.getElementById("sub1").value = sub1 || "";
+      document.getElementById("keyword").value = keyword || "";
+      document.getElementById("gclid").value = gclid || "";
 
     });
   </script>
