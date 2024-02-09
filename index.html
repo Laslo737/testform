@@ -29,6 +29,11 @@
       document.getElementById("gclid").value = gclid || "";
 
       document.getElementById("form__success").style.display = status === "true" ? "flex" : "none";
+      const isSendMessageRequest = window.location.pathname === "/sendmessage" 
+      const isSendMessageRequest1 = window.location.search === "";
+
+      console.log(`isSendMessageRequest: ${isSendMessageRequest}`);
+      console.log(`isSendMessageRequest1: ${isSendMessageRequest1}`);
 
       document.getElementById("closeButton").addEventListener("click", function () {
         document.getElementById("form__success").style.display = "none";
