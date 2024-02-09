@@ -33,7 +33,7 @@ export async function onRequestPost(context) {
     return new Response(pretty, {
       status: 302, // Статус 302 означает временный редирект
       headers: {
-        'Location': './index.html', // Замените на ваш целевой URL
+        'Content-Type': 'application/json;charset=utf-8',
       },
     });
   } catch (error) {
