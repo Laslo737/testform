@@ -28,6 +28,11 @@
                     </p>
                     <p>
                         Пожалуйста, проверьте Ваши данные:
+                        Имя: <span style="color: #d34085;" id="namePlaceholder"></span>
+                        Телефон: <span style="color: #d34085;" id="telPlaceholder"></span>
+                    </p>
+                    <p>
+                        Если данные введеные неверно, Вы можете отправить заявку снова, нажава по кнопке ниже.
                     </p>
                 </div>
             </div>
@@ -36,7 +41,19 @@
         </div>
     </header>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Получение гет-параметров из URL
+            const urlParams = new URLSearchParams(window.location.search);
 
+            // Получение значения каждого параметра
+            const name = urlParams.get("name");
+            const tel = urlParams.get("tel");
+
+            document.getElementById("namePlaceholder").innerText = name || '';
+            document.getElementById("telPlaceholder").innerText = tel || '';
+        });
+    </script>
     <script src="js/main.js" defer></script>
 </body>
 
