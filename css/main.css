@@ -498,6 +498,7 @@ body {
    align-items: center;
    justify-content: center;
    background: #00000078;
+   z-index: 99999999999;
 }
 
 .close-button {
