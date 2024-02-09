@@ -499,7 +499,7 @@ body {
 }
 
 .form-success__content {
-   display: flex;
+   display: none;
    background: #fff;
    height: 30%;
    width: 50%;
