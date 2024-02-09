@@ -485,22 +485,8 @@ body {
 }
 
 .form__success {
-   #form__success {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1000;
-      /* Set a high z-index to ensure it appears above other elements */
-      background-color: rgba(255, 255, 255, 0.9);
-      /* Add a semi-transparent white background */
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      /* Add a subtle shadow for depth */
-   }
+   display: none;
+   z-index: 99999999999;
 }
 
 .form__success-active {
