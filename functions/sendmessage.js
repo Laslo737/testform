@@ -1,7 +1,7 @@
 export async function onRequestPost(context) {
   try {
-    const telegramBotToken = '5458783596:AAGrAKN5Su7ApVD6LeWKfQ6bosVk1V8bxZ4';
-    const telegramChatId = '-860374952';
+    const telegramBotToken = process.env.TELEGRAM_BOT_TOKEN;
+    const telegramChatId = process.env.TELEGRAM_CHAT_ID;
 
     let input = await context.request.formData();
 
@@ -33,18 +33,15 @@ export async function onRequestPost(context) {
 
     let getTelephone = output.phone.trim() !== '' ? output.phone : output.whatsapp
 
-    // Возвращаем успешный ответ
     return new Response(data, {
-      status: 302, // Статус 302 означает временный редирект
+      status: 302,
       headers: {
-        'Location': `./thanks.html?name=${output.name}&tel=${getTelephone}`, // Замените на ваш целевой URL
+        'Location': `./thanks.html?name=${output.name}&tel=${getTelephone}`,
         'Content-Type': 'application/json;charset=utf-8',
       },
     });
   } catch (error) {
     console.error('Ошибка обработки формы:', error);
-
-    // Возвращаем ответ об ошибке
     return new Response('Error parsing JSON content', { status: 400 });
   }
 }
