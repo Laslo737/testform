@@ -30,13 +30,13 @@ export async function onRequestPost(context) {
       }),
     });
 
-    let getTelephone = input[Ватсап].trim() !== '' ? input[Ватсап] : input[Телефон]
+    // let getTelephone = input[Ватсап].trim() !== '' ? input[Ватсап] : input[Телефон]
 
     // Возвращаем успешный ответ
     return new Response(data, {
       status: 302, // Статус 302 означает временный редирект
       headers: {
-        'Location': `./thanks.html?name=${input[Имя]}&tel=${getTelephone}`, // Замените на ваш целевой URL
+        'Location': `./thanks.html?name=name`, // Замените на ваш целевой URL
         'Content-Type': 'application/json;charset=utf-8',
       },
     });
