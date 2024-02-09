@@ -480,9 +480,11 @@ body {
 .form__btn {
    display: none;
 }
-#input__name{
+
+#input__name {
    margin-bottom: 10px;
 }
+
 .form__btn {
    margin: 15px auto;
 }
@@ -498,7 +500,23 @@ body {
    background: #00000078;
 }
 
+.close-button {
+   position: absolute !important;
+   top: 10px;
+   right: 20px;
+   font-size: 20px;
+   cursor: pointer;
+   color: #000000;
+   /* Цвет крестика */
+}
+
+.close-button:hover {
+   color: #000000;
+   /* Цвет крестика при наведении */
+}
+
 .form-success__content {
+   position: relative;
    display: flex;
    background: #fff;
    height: 30%;
