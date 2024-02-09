@@ -273,13 +273,6 @@
 
       document.getElementById("closeButton").addEventListener("click", function () {
         document.getElementById("form__success").style.display = "none";
-
-        // Удаление параметра status из URL
-        const url = new URL(window.location.href);
-        url.searchParams.delete("status");
-
-        // Замена текущей истории без добавления новой записи
-        window.history.replaceState({}, document.title, url);
       });
 
     });
