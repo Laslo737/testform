@@ -486,6 +486,7 @@ body {
 
 .form__success {
    display: none;
+   z-index: 99999999999;
 }
 
 .form__success-active {
